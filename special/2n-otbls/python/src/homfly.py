@@ -51,12 +51,10 @@ for q in range(2 ** 9):
     elif nz >= 3 and nz <= 4:
         nc = (8 - nz) if cri1(bl.string) else (6 - nz)
     elif nz == 5:
-        nc = 3 if cri2(bl.string) else ((8 - nz) if cri1(bl.string) else (6 - nz))
+        nc = (8 - nz) if cri1(bl.string) or cri2(bl.string) else (6 - nz)
     elif nz == 6:
-        nc = 4 if cri3(bl.string) else 2
-    elif nz == 7: nc = 3
-    elif nz == 8: nc = 4
-    elif nz == 9: nc = 5
+        nc = (nz - 2) if cri3(bl.string) else (nz - 4)
+    elif 7 <= nz <= 9: nc = nz - 4
     
     bl.homfly = 1 if nc == 1 else ((v**(-1) - v) * z**(-1))**(nc - 1)
     bls.append(bl)
