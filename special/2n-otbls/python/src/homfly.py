@@ -48,7 +48,7 @@ for q in range(2 ** 9):
     
     nc = 0
     if nz <= 2: nc = 6 - nz
-    elif nz >= 3 and nz <= 4:
+    elif 3 <= nz <= 4:
         nc = (8 - nz) if cri1(bl.string) else (6 - nz)
     elif nz == 5:
         nc = (8 - nz) if cri1(bl.string) or cri2(bl.string) else (6 - nz)
